@@ -9,7 +9,7 @@
 
     <label 
       v-bind:for="id">
-      {{ label }}
+      <div class="text">{{ label }}</div>
     </label>
   </div>
 </template>
@@ -45,17 +45,19 @@ export default {
     font-weight: 400;
     line-height: 17px;
     font-size: 12px;
+    position: relative;
   }
   label::before {
+    position: absolute;
     content: '';
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     vertical-align: middle;
     margin-left: -10px;
     margin-right: 10px;
     border-radius: 50%;
-    border: 1px solid var(--blue);
+    border: 2px solid var(--blue);
     transition: all 0.2s;
   }
   input:checked + label::before {

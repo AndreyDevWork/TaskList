@@ -1,4 +1,5 @@
 <template>
+  <PanelWithLogo/>
   <div class="register">
     <div class="header">
       <h1 class="title-h1-light">Создать учетную запись Task List</h1>
@@ -11,9 +12,11 @@
 
 <script>
 import FormRegister from '@/components/FormRegister.vue';
+import PanelWithLogo from '@/components/PanelWithLogo.vue';
 export default {
   components: {
-    FormRegister
+    FormRegister,
+    PanelWithLogo
   }
 }
 </script>
@@ -29,6 +32,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, minmax(20px, auto));
+    margin-top: 40px;
   }
   .header {
     grid-column: 1 / 3;
@@ -42,6 +46,7 @@ export default {
   }
   .link {
     color: var(--green);
+    text-decoration: none;
     &:hover {
       color: var(--green-hover);
     }

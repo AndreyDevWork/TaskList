@@ -1,11 +1,5 @@
 <template>
   <div class="main">
-    <ButtonWideGreen>fsada</ButtonWideGreen>
-    <CheckBoxMain
-      v-bind:label="'ddd'"
-      v-bind:name="'check'"
-      v-bind:id="'id'"
-    />
     <router-view></router-view>
   </div>
 </template>

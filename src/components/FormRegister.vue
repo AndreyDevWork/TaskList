@@ -52,12 +52,12 @@
       </div>
     </div>
 
-    <div class="wrapper-checkboxes">
-
-      
-    </div>
+    <p class="policy title-fz12-light">
+      * Нажимая создать аккаунт я соглашаюсь с <a href="" class="policy__link">Политикой конфиденциальности</a> и <a href="" class="policy__link">Условиями предоставления услуг.</a>
+    </p>
 
     <ButtonWideGreen
+      class="btn"
       v-bind:disabled="btnDisabled"
     >
       Создать аккаунт
@@ -97,7 +97,7 @@ export default {
       return regexEmail.test(this.emailValue)
     },
     validatedPassword() {
-      const regexPassword = /^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/
+      const regexPassword = /^(?=.*[a-zA-Zа-яА-Я0-9])(?=.*[a-zA-Zа-яА-Я])(?=.*[0-9]).{6,}$/
       return this.passwordValid = regexPassword.test(this.passwordValue)
     },
     btnDisabled() {
@@ -144,6 +144,30 @@ export default {
     &:hover {
       background: var(--dark-gray);
     }
+  }
+  .wrapper-checkboxes {
+    padding: 0 5px;
+    margin-top: 20px;
+  }
+  .policy {
+    margin-top: 20px;
+    padding: 10px 0 10px 15px;
+    transition: 0.4s all;
+    border-radius: 12px;
+    &:hover {
+      background: var(--light-gray);
+    }
+    &__link {
+      color: var(--green);
+      text-decoration: none;
+      transition: 0.4s all;
+      &:hover {
+        color: var(--green-hover);
+      }
+    }
+  }
+  .btn {
+    margin-top: 20px;
   }
 
 </style>

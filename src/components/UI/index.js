@@ -10,6 +10,7 @@ import OpenEyeIcon from '@/components/UI/icons/OpenEyeIcon'
 import AttentionIcon from '@/components/UI/icons/AttentionIcon'
 import XIcon from '@/components/UI/icons/XIcon'
 import OkayIcon from '@/components/UI/icons/OkayIcon'
+import LogoIcon from '@/components/UI/icons/LogoIcon'
 
 export default [
   ButtonWideGreen, 
@@ -22,5 +23,6 @@ export default [
   OpenEyeIcon,
   AttentionIcon,
   XIcon,
-  OkayIcon
+  OkayIcon,
+  LogoIcon
 ]
