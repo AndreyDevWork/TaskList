@@ -6,24 +6,50 @@
 
       <div class="wrapper-input">
         <UserIcon/>
-        <input class="input title-fz12-light" type="text" placeholder="Name" name="name">
+        <input class="input title-fz14-light title_letter-spacing" type="text" placeholder="Name" name="name"
+          v-model="nameValue"
+        >
+        <OkayIcon
+          v-if="validatedName"
+        />
       </div>
 
       <div class="wrapper-input">
         <EmailIcon/>
-        <input class="input title-fz12-light" type="email" placeholder="Email" name="email" >
+        <input class="input title-fz14-light title_letter-spacing" type="email" placeholder="Email" name="email" 
+          v-model="emailValue"
+        >
+        <OkayIcon
+          v-if="validatedEmail"
+        />
       </div>
       
       <div class="wrapper-input">
         <PassLockIcon/>
-        <input class="input input-password title-fz12-light " type="password" placeholder="Password" name="password">
+        <input class="input input-password title-fz14-light title_letter-spacing" placeholder="Password" name="password"
+          v-bind:type="inputType"
+          v-model="passwordValue"
+        >
+        <div
+          class="show-hide-password"
+          v-on:click="onChangeInputType"
+        >
+          <CloseEyeIcon
+            v-if="inputType == 'password'"
+          />
+          <OpenEyeIcon
+            v-if="inputType == 'text'"
+          />
+        </div>
         <modal-attention
+          v-if="!validatedPassword"
           titleText="Пароль"
           text="Пароль должен состоять из более чем 6 символов и должен содержать хотя бы 1 цифру или букву."
         />
-        <CloseEyeIcon/>
+        <OkayIcon
+          v-if="validatedPassword"
+        />
       </div>
-
     </div>
 
     <div class="wrapper-checkboxes">
@@ -31,14 +57,51 @@
       
     </div>
 
-    <ButtonWideGreen>Create free account</ButtonWideGreen>
+    <ButtonWideGreen
+      v-bind:disabled="btnDisabled"
+    >
+      Создать аккаунт
+    </ButtonWideGreen>
   </form>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      inputType: 'password',
+
+      passwordValue: '',
+      emailValue: '',
+      nameValue: '',
+    }
+  },
   methods: {
     sendForm() {
       console.log('send')
+    },
+    onChangeInputType() {
+      if(this.inputType == 'password') {
+        this.inputType = 'text'
+      } else {
+        this.inputType = 'password'
+      }
+    }
+  },
+  computed: {
+    validatedName() {
+      const regexName = /^[a-zA-Zа-яА-Я0-9_\s]{2,30}$/
+      return this.passwordValid = regexName.test(this.nameValue)
+    },
+    validatedEmail() {
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return regexEmail.test(this.emailValue)
+    },
+    validatedPassword() {
+      const regexPassword = /^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/
+      return this.passwordValid = regexPassword.test(this.passwordValue)
+    },
+    btnDisabled() {
+      return !(this.validatedName && this.validatedEmail && this.validatedPassword)
     }
   }
 }
@@ -59,9 +122,10 @@ export default {
     display: grid;
     grid-template-columns: 20px minmax(100px, auto) 20px 20px;
     column-gap: 15px;
+    align-items: center;
   }
   .input {
-    grid-column: 2 / 6;
+    grid-column: 2 / 4;
     padding: 8px 0;
     border: none;
     background: var(--light-gray);
@@ -71,6 +135,15 @@ export default {
   .input-password {
     grid-column: 2 / 3;
     border-bottom: none;
+  }
+  .show-hide-password {
+    transition: 0.4s all;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    &:hover {
+      background: var(--dark-gray);
+    }
   }
 
 </style>

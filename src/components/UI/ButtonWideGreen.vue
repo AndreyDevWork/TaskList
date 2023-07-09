@@ -3,6 +3,7 @@
     class="btn title-fz14"
     v-bind:class="{focused: isActive}"
     v-on:mousedown="handleMousedown"
+    v-on:mouseleave="handleMouseleave"
     v-on:mouseup="handleMouseup"
     >
     <slot/>
@@ -22,6 +23,9 @@ export default {
     },
     handleMouseup() {
       this.isActive = false
+    },
+    handleMouseleave() {
+      this.isActive = false
     }
   }
 }
@@ -34,7 +38,9 @@ export default {
     border-radius: 10px;
     background: var(--green);
     color: var(--light-green);
+    cursor: pointer;
   }
+
   .focused {
     color: var(--very-light-green);
   }

@@ -9,7 +9,7 @@ import directives from '@/directives'
 import router from '@/router/router'
 
 const app = createApp(App)
-
+app.config.devtools = true;
 componentsUI.forEach(item => {
   app.component(item.name, item)
 });

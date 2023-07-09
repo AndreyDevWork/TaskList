@@ -103,6 +103,7 @@ export default {
     border-radius: 12px;
     padding: 10px;
     background: var(--light-gray);
+    left: -250px;
     &__title {
       height: 20px;
       text-align: center;
