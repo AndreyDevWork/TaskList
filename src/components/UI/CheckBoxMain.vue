@@ -49,13 +49,13 @@ export default {
   label::before {
     content: '';
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     vertical-align: middle;
     margin-left: -10px;
     margin-right: 10px;
     border-radius: 50%;
-    border: 2px solid var(--blue);
+    border: 1px solid var(--blue);
     transition: all 0.2s;
   }
   input:checked + label::before {

@@ -1,37 +1,60 @@
 <template>
-  <div class="modal-attention">
-    <div class="btn">
-      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-      width="18px" height="18px" viewBox="0 0 512.000000 512.000000"
-      preserveAspectRatio="xMidYMid meet">
-      <metadata>
-      Created by potrace 1.16, written by Peter Selinger 2001-2019
-      </metadata>
-      <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-      fill="rgb(155, 155, 155)" stroke="none">
-      <path d="M2484 4469 c-80 -23 -66 -1 -1077 -1799 -530 -943 -970 -1732 -977
-      -1754 -34 -104 31 -229 139 -265 49 -16 3933 -16 3982 0 108 36 173 161 139
-      265 -7 22 -447 811 -977 1754 -1019 1814 -997 1776 -1082 1800 -43 12 -104 12
-      -147 -1z m167 -1296 c40 -21 61 -40 84 -77 l30 -49 3 -461 c3 -498 2 -518 -49
-      -579 -83 -100 -235 -100 -318 0 -51 61 -52 81 -49 579 l3 461 30 49 c35 57
-      114 104 175 104 20 0 61 -12 91 -27z m-34 -1478 c92 -27 164 -134 149 -223
-      -13 -81 -88 -164 -161 -178 -88 -16 -186 29 -224 104 -48 94 -35 172 39 244
-      44 42 66 53 141 67 3 1 28 -6 56 -14z"/>
-      </g>
-    </svg>
-  </div>
-  <div class="modaal">
-    <div class="title title-fz15">{{ titleText }}</div>
-    <p class="text">{{ text }}</p>
-  </div>
+  <div>
+    <div class="wrapper">
+      <div 
+        class="btn"
+        v-on:click="toggleModal($event)"
+      >
+        <AttentionIcon/>
+      </div>
+    </div>
+    <BouceAnimate
+      v-bind:show="active"
+    >
+      <div 
+        v-if="active" 
+        v-on:mouseenter="CloseBtn = true"
+        v-on:mouseleave="CloseBtn = false"
+        class="modal"
+        ref="modal"
+      >
+        <div class="modal__title title-fz15">{{ titleText }}</div>
+        <p class="title-fz14-light modal__text">{{ text }}</p>
+        <div 
+          v-on:click.stop="closeModal"
+          class="modal__close-btn"
+          v-bind:class="{'modal__close-btn_hiden': !CloseBtn}"
+        >
+          <XIcon/>
+        </div>
+      </div>
+    </BouceAnimate>
   </div>
 </template>
+
 <script>
 export default {
   name: 'ModalAttention',
   data() {
     return {
-
+      active: false,
+      CloseBtn: false,
+    }
+  },
+  methods: {
+    toggleModal(event) {
+      event.stopPropagation();
+      this.active = !this.active;
+      this.CloseBtn = false;
+    },
+    closeModal() {
+      this.active = false;
+      this.CloseBtn = false;
+    },
+    handleClickOutside(event) {
+      if (this.$refs.modal && !this.$refs.modal.contains(event.target)) {
+        this.closeModal();
+      }
     }
   },
   props: {
@@ -42,45 +65,71 @@ export default {
       required: true,
     }
   },
-  methods: {
-
+  mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.handleClickOutside);
   }
 }
 </script>
 <style lang="scss" scoped>
+  div {
+    height: 100%;
+    position: relative;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
   .btn {
-    width: 26px;
-    height: 20px;
     cursor: pointer;
-    text-align: center;
-    border-radius: 5px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    transition: 0.5s all;
+    transition: 0.4s all;
+    border-radius: 4px;
     &:hover {
-      background: var(--gray);
+      background: var(--dark-gray);
     }
   }
-  .modaal {
-    background: var(--light-gray);
-    border: 1px solid var(--dark-gray);
-    border-radius: 12px;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0px 0px 8px 0.2px var(--gray-shadow);
+  .modal {
     position: absolute;
-  }
-  .text {
-    background: var(--white);
-    padding: 10px;
-    text-align: left;
+    height: auto;
+    width: 280px;
+    border: 1px solid var(--dark-gray);
+    box-shadow: 0px 0px 8px 0.2px var(--gray-shadow);
     border-radius: 12px;
-    margin-top: 20px;
-  }
-  svg {
-    g {
-      fill: var(--svg-fray);
+    padding: 10px;
+    background: var(--light-gray);
+    &__title {
+      height: 20px;
+      text-align: center;
+    }
+    &__text {
+      margin-top: 10px;
+      padding: 10px;
+      background: var(--white);
+      border-radius: 12px;
     }
   }
+  .modal__close-btn {
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: 0.4s all;
+    opacity: 1;
+    &:hover {
+      background: var(--dark-gray);
+    }
+    &_hiden {
+      opacity: 0;
+    }
+  }
+
 </style>

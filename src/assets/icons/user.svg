@@ -1,9 +1,6 @@
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 width="100%" height="100%" viewBox="0 0 512.000000 512.000000"
 preserveAspectRatio="xMidYMid meet">
-<metadata>
-Created by potrace 1.16, written by Peter Selinger 2001-2019
-</metadata>
 <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
 fill="rgb(46, 162, 114)" stroke="none">
 <path d="M2265 5109 c-487 -60 -923 -242 -1310 -548 -93 -73 -327 -307 -400
@@ -25,4 +22,4 @@ m100 -1296 c257 -53 460 -163 654 -355 158 -156 250 -303 319 -508 50 -148 65
 118 c-3 64 -13 149 -21 187 -75 354 -326 642 -663 765 -162 58 -373 75 -544
 44z"/>
 </g>
-          </svg>
+</svg>

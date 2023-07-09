@@ -1,11 +1,12 @@
 <template>
   <div class="register">
     <div class="header">
-      <h1 class="title-h1">Create a free Task List account</h1>
-      <p class="title-fz16">Or <a class="link" href="">login to your account</a>.</p>
+      <h1 class="title-h1-light">Создать учетную запись Task List</h1>
+      <p class="title-fz16-light">Или <a class="link" href="">войдите в Вашу учетную запись</a>.</p>
     </div>
     <FormRegister/>
   </div>
+  <BouceAnimate/>
 </template>
 
 <script>
@@ -32,10 +33,10 @@ export default {
   .header {
     grid-column: 1 / 3;
   }
-  .title-h1 {
+  .title-h1-light {
     text-align: center;
   }
-  .title-fz16 {
+  .title-fz16-light {
     text-align: center;
     margin-top: 20px;
   }
