@@ -112,6 +112,15 @@ export default {
     display: grid;
     padding-right: 10px;
     grid-template-rows: repeat(3, minmax(20px, auto));
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 100%;
+      right: 0;
+      background: var(--gray);
+    }
   }
   .block-inputs {
     background: var(--light-gray);

@@ -2,10 +2,11 @@
   <PanelWithLogo/>
   <div class="register">
     <div class="header">
-      <h1 class="title-h1-light">Создать учетную запись Task List</h1>
+      <h1 class="title-h1-light">Создать учетную запись</h1>
       <p class="title-fz16-light">Или <a class="link" href="">войдите в Вашу учетную запись</a>.</p>
     </div>
     <FormRegister/>
+    <RegisterWith/>
   </div>
   <BouceAnimate/>
 </template>
@@ -13,17 +14,19 @@
 <script>
 import FormRegister from '@/components/FormRegister.vue';
 import PanelWithLogo from '@/components/PanelWithLogo.vue';
+import RegisterWith from '@/components/RegisterWith.vue';
 export default {
   components: {
     FormRegister,
-    PanelWithLogo
+    PanelWithLogo,
+    RegisterWith
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .register {
-    padding: 40px 10px;
+    padding: 20px 10px;
     width: 680px;
     min-height: 100px;
     background: var(--white);

@@ -11,6 +11,8 @@ import AttentionIcon from '@/components/UI/icons/AttentionIcon'
 import XIcon from '@/components/UI/icons/XIcon'
 import OkayIcon from '@/components/UI/icons/OkayIcon'
 import LogoIcon from '@/components/UI/icons/LogoIcon'
+import GoogleIcon from '@/components/UI/icons/GoogleIcon'
+import VkIcon from '@/components/UI/icons/VkIcon'
 
 export default [
   ButtonWideGreen, 
@@ -24,5 +26,7 @@ export default [
   AttentionIcon,
   XIcon,
   OkayIcon,
-  LogoIcon
+  LogoIcon,
+  GoogleIcon,
+  VkIcon,
 ]
