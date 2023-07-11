@@ -1,6 +1,6 @@
 <template>
-  <form  novalidate class="wrapper-form"
-    v-on:submit.prevent="sendForm"
+  <form novalidate class="wrapper-form"
+    v-on:submit.prevent="sendData"
   >
     <div class="block-inputs">
 
@@ -76,8 +76,16 @@ export default {
     }
   },
   methods: {
-    sendForm() {
-      console.log('send')
+    sendData() {
+      const formData = {
+        type: 'user',
+        name: this.nameValue,
+        email: this.emailValue,
+        password: this.passwordValue
+      };
+      
+      // Вызов экшена sendData и передача данных формы
+      this.$store.dispatch('sendData', formData);
     },
     onChangeInputType() {
       if(this.inputType == 'password') {
@@ -89,7 +97,7 @@ export default {
   },
   computed: {
     validatedName() {
-      const regexName = /^[a-zA-Zа-яА-Я0-9_\s]{2,30}$/
+      const regexName = /^[a-zA-Zа-яА-Я0-9_\s]{2,32}$/
       return this.passwordValid = regexName.test(this.nameValue)
     },
     validatedEmail() {

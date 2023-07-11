@@ -1,14 +1,8 @@
 import { createStore } from 'vuex'
+import { formRegisterModule } from './formRegisterModule'
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    formRegister: formRegisterModule
   }
 })

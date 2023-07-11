@@ -1,6 +1,9 @@
 <template>
   <PanelWithLogo/>
-  <div class="register">
+  <div 
+  v-if="!isRegister"
+  class="register"
+  >
     <div class="header">
       <h1 class="title-h1-light">Создать учетную запись</h1>
       <p class="title-fz16-light">Или <a class="link" href="">войдите в Вашу учетную запись</a>.</p>
@@ -8,18 +11,28 @@
     <FormRegister/>
     <RegisterWith/>
   </div>
-  <BouceAnimate/>
+    <WelcomeTaskList
+      v-if="isRegister"
+    />
+
 </template>
 
 <script>
 import FormRegister from '@/components/FormRegister.vue';
 import PanelWithLogo from '@/components/PanelWithLogo.vue';
 import RegisterWith from '@/components/RegisterWith.vue';
+import WelcomeTaskList from '@/components/WelcomeTaskList.vue';
 export default {
   components: {
     FormRegister,
     PanelWithLogo,
-    RegisterWith
+    RegisterWith,
+    WelcomeTaskList
+  },
+  computed: {
+    isRegister() {
+      return this.$store.getters.isRegister;
+    }
   }
 }
 </script>
