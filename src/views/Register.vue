@@ -14,6 +14,9 @@
     <WelcomeTaskList
       v-if="isRegister"
     />
+    <div class="overlay"
+      v-if="isRegister"
+    ></div>
 
 </template>
 
@@ -66,6 +69,15 @@ export default {
     &:hover {
       color: var(--green-hover);
     }
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: black;
+    top: 0;
+    opacity: 0.2;
+    z-index: 0;
   }
   
 </style>

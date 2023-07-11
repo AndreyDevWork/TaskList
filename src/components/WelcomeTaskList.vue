@@ -1,5 +1,7 @@
 <template>
-  <main class="welcome">
+<transition name="bounce">
+  <div class="bounce-enter-active">
+    <main class="welcome">
     <h1 class="welcome__title title-fz16">Поздравляем!</h1>
     <p class="welcome__text title-fz15-light">
       Благодарим Вас за то, что Вы присоединились к TaskList.<br>
@@ -7,19 +9,14 @@
     </p>
     <a href="" class="title-fz14 welcome__link">Перейти в учетную запись</a>
   </main>
-  <div class="overlay"></div>
+  </div>
+</transition>
 </template>
+
 
 <script>
   export default {
-    data() {
-      return {
-        active: false
-      }
-    },
-    computed: {
-      
-    }
+    
   }
 </script>
 
@@ -47,7 +44,7 @@
     &__link {
       background: var(--light-gray);
       border-radius: 12px;
-      margin-top: 30px;
+      margin-top: 10px;
       padding: 10px;
       text-decoration: none;
       color: var(--green);
@@ -57,13 +54,19 @@
       }
     }
   }
-  .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: black;
-    top: 0;
-    opacity: 0.2;
-    z-index: 0;
+
+  .bounce-enter-active {
+  animation: bounce-in 0.2s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.2s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 </style>
