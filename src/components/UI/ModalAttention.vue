@@ -114,23 +114,24 @@ export default {
       background: var(--white);
       border-radius: 12px;
     }
-  }
-  .modal__close-btn {
-    height: 26px;
-    width: 26px;
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    padding: 4px;
-    border-radius: 4px;
-    transition: 0.4s all;
-    opacity: 1;
-    &:hover {
-      background: var(--dark-gray);
+    &__close-btn {
+      height: 26px;
+      width: 26px;
+      position: absolute;
+      top: 7px;
+      right: 10px;
+      padding: 4px;
+      border-radius: 4px;
+      transition: 0.4s all;
+      opacity: 1;
+      &:hover {
+        background: var(--dark-gray);
+      }
+      &_hiden {
+        opacity: 0;
+      }
     }
-    &_hiden {
-      opacity: 0;
-    }
   }
+
 
 </style>

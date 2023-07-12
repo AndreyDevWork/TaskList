@@ -1,12 +1,12 @@
 <template>
-  <form novalidate class="wrapper-form"
+  <form novalidate class="form"
     v-on:submit.prevent="sendData"
   >
-    <div class="block-inputs">
+    <div class="form__inputs">
 
-      <div class="wrapper-input">
+      <div class="form__wrapper-input">
         <UserIcon/>
-        <input class="input title-fz14-light title_letter-spacing" type="text" placeholder="Name" name="name"
+        <input class="form__input title-fz14-light title_letter-spacing" type="text" placeholder="Name" name="name"
           v-model="nameValue"
         >
         <OkayIcon
@@ -14,9 +14,9 @@
         />
       </div>
 
-      <div class="wrapper-input">
+      <div class="form__wrapper-input">
         <EmailIcon/>
-        <input class="input title-fz14-light title_letter-spacing" type="email" placeholder="Email" name="email" 
+        <input class="form__input title-fz14-light title_letter-spacing" type="email" placeholder="Email" name="email" 
           v-model="emailValue"
         >
         <OkayIcon
@@ -24,14 +24,14 @@
         />
       </div>
       
-      <div class="wrapper-input">
+      <div class="form__wrapper-input">
         <PassLockIcon/>
-        <input class="input input-password title-fz14-light title_letter-spacing" placeholder="Password" name="password"
+        <input class="form__input form__password title-fz14-light title_letter-spacing" placeholder="Password" name="password"
           v-bind:type="inputType"
           v-model="passwordValue"
         >
         <div
-          class="show-hide-password"
+          class="form__show-hide-password"
           v-on:click="onChangeInputType"
         >
           <CloseEyeIcon
@@ -52,12 +52,12 @@
       </div>
     </div>
 
-    <p class="policy title-fz12-light">
-      * Нажимая создать аккаунт я соглашаюсь с <a href="" class="policy__link">Политикой конфиденциальности</a> и <a href="" class="policy__link">Условиями предоставления услуг.</a>
+    <p class="form__policy title-fz12-light">
+      * Нажимая создать аккаунт я соглашаюсь с <a href="" class="form__policy-link">Политикой конфиденциальности</a> и <a href="" class="form__policy-link">Условиями предоставления услуг.</a>
     </p>
 
     <ButtonWideGreen
-      class="btn"
+      class="form__btn"
       v-bind:disabled="btnDisabled"
     >
       Создать аккаунт
@@ -115,7 +115,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .wrapper-form {
+  .form {
     margin-top: 40px;
     display: grid;
     padding-right: 10px;
@@ -129,52 +129,48 @@ export default {
       right: 0;
       background: var(--gray);
     }
-  }
-  .block-inputs {
-    background: var(--light-gray);
-    padding: 0px 15px;
-    border-radius: 12px;
-  }
-  .wrapper-input {
-    display: grid;
-    grid-template-columns: 20px minmax(100px, auto) 20px 20px;
-    column-gap: 15px;
-    align-items: center;
-  }
-  .input {
-    grid-column: 2 / 4;
-    padding: 8px 0;
-    border: none;
-    background: var(--light-gray);
-    outline: none;
-    border-bottom: 1px solid var(--dark-gray);
-  }
-  .input-password {
-    grid-column: 2 / 3;
-    border-bottom: none;
-  }
-  .show-hide-password {
-    transition: 0.4s all;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    &:hover {
-      background: var(--dark-gray);
-    }
-  }
-  .wrapper-checkboxes {
-    padding: 0 5px;
-    margin-top: 20px;
-  }
-  .policy {
-    margin-top: 20px;
-    padding: 10px 0 10px 15px;
-    transition: 0.4s all;
-    border-radius: 12px;
-    &:hover {
+    &__inputs {
       background: var(--light-gray);
+      padding: 0px 15px;
+      border-radius: 12px;
     }
-    &__link {
+    &__wrapper-input {
+      display: grid;
+      grid-template-columns: 20px minmax(100px, auto) 20px 20px;
+      column-gap: 15px;
+      align-items: center;
+    }
+    &__input {
+      grid-column: 2 / 4;
+      padding: 8px 0;
+      border: none;
+      background: var(--light-gray);
+      outline: none;
+      border-bottom: 1px solid var(--dark-gray);
+    }
+    &__password {
+      grid-column: 2 / 3;
+      border-bottom: none;
+    }
+    &__show-hide-password {
+      transition: 0.4s all;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      &:hover {
+        background: var(--dark-gray);
+      }
+    }
+    &__policy {
+      margin-top: 20px;
+      padding: 10px 0 10px 15px;
+      transition: 0.4s all;
+      border-radius: 12px;
+      &:hover {
+        background: var(--light-gray);
+      }
+    }
+    &__policy-link {
       color: var(--green);
       text-decoration: none;
       transition: 0.4s all;
@@ -182,9 +178,9 @@ export default {
         color: var(--green-hover);
       }
     }
-  }
-  .btn {
-    margin-top: 20px;
+    &__btn {
+      margin-top: 20px;
+    }
   }
 
 </style>

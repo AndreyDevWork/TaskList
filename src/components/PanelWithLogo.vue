@@ -25,9 +25,10 @@ export default {
     align-items: center;
     column-gap: 10px;
     grid-template-columns:  minmax(25px, auto) minmax(30px, auto);
+    &__wrapper-icon {
+      height: 25px;
+      width: 25px;
+    }
   }
-  .panel__wrapper-icon {
-    height: 25px;
-    width: 25px;
-  }
+
 </style>

@@ -4,7 +4,7 @@
     <main class="welcome">
     <h1 class="welcome__title title-fz16">Поздравляем!</h1>
     <p class="welcome__text title-fz15-light">
-      Благодарим Вас за то, что Вы присоединились к TaskList.<br>
+      Благодарим Вас за то, что Вы присоединились к Task List.<br>
       Теперь вы можете авторизироваться.
     </p>
     <a href="" class="title-fz14 welcome__link">Перейти в учетную запись</a>

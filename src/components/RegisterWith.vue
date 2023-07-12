@@ -1,13 +1,13 @@
 <template>
   <div class="wrapper">
-    <div class="block">
-      <div class="wrapper-icon">
+    <div class="social">
+      <div class="social__icon">
         <GoogleIcon/>
       </div>
       <p class="title-fz16-light">Зарегестрироваться с Google</p>
     </div>
-    <div class="block">
-      <div class="wrapper-icon">
+    <div class="social">
+      <div class="social__icon">
         <VkIcon/>
       </div>
       <p class="title-fz16-light">Зарегестрироваться с Вконтакте</p>
@@ -27,7 +27,7 @@ export default {
     flex-direction: column;
     gap: 10px;
   }
-  .block {
+  .social {
     cursor: pointer;
     border-radius: 8px;
     padding: 0 15px;
@@ -45,10 +45,10 @@ export default {
     &:hover {
       background: var(--light-gray);
     }
-  }
-  .wrapper-icon {
-    width: 30px;
-    height: 30px;
+    &__icon {
+      width: 30px;
+      height: 30px;
+    }
   }
 
 </style>

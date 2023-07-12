@@ -2,60 +2,39 @@
   <PanelWithLogo/>
 
   <transition name="bounce">
-    <div v-if="show">
-      <div 
-      v-if="!isRegister"
-      class="register"
-      >
-        <div class="register__header">
-          <h1 class="title-h1-light">Создать учетную запись</h1>
-          <p class="title-fz16-light">Или <router-link class="register__link" to="/login">войдите в Вашу учетную запись</router-link>.</p>
-        </div>
-        <FormRegister/>
-        <RegisterWith/>
+    <div v-if="show" class="login">
+      <div class="login__header">
+        <h1 class="title-h1-light">Вход в Task List</h1>
+        <p class="title-fz16-light">Или <router-link class="login__link" to="/register">создайте учетную запись</router-link>.</p>
       </div>
-      <WelcomeTaskList
-        v-if="isRegister"
-      />
-      <div class="register__overlay"
-        v-if="isRegister"
-      >
-      </div>
+      <FormLogin/>
+      <RegisterWith/>
     </div>
   </transition>
-</template>
 
+</template>
 <script>
-import FormRegister from '@/components/FormRegister.vue';
 import PanelWithLogo from '@/components/PanelWithLogo.vue';
 import RegisterWith from '@/components/RegisterWith.vue';
-import WelcomeTaskList from '@/components/WelcomeTaskList.vue';
+import FormLogin from '@/components/FormLogin.vue';
 export default {
   data() {
     return {
       show: false
     }
-  },  
+  },
   components: {
-    FormRegister,
     PanelWithLogo,
     RegisterWith,
-    WelcomeTaskList
-  },
-  computed: {
-    isRegister() {
-      return this.$store.getters.isRegister;
-    }
+    FormLogin
   },
   mounted() {
     this.show = true
   }
-  
 }
 </script>
-
 <style lang="scss" scoped>
-  .register {
+  .login {
     padding: 20px 10px 40px 10px;
     width: 680px;
     min-height: 100px;
@@ -76,15 +55,6 @@ export default {
         color: var(--green-hover);
       }
     }
-    &__overlay {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background: black;
-      top: 0;
-      opacity: 0.2;
-      z-index: 0;
-    }
   }
   .title-h1-light {
     text-align: center;
@@ -93,7 +63,6 @@ export default {
     text-align: center;
     margin-top: 20px;
   }
-
 
   .bounce-enter-active {
   animation: bounce-in 0.2s;
@@ -109,5 +78,4 @@ export default {
       transform: scale(1);
     }
   }
-  
 </style>
