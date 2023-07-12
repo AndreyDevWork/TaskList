@@ -19,8 +19,9 @@ export const formRegisterModule = {
     async sendData({ commit }, formData) {
       await axios.post('/api/controllers/register.php', formData)
       .then(response => {
-        console.log(response);
-        commit('setIsRegister', true); 
+        if(response.data == 'Ok') {
+          commit('setIsRegister', true); 
+        }
       })
       .catch(error => {
         console.error(error);
