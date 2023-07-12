@@ -70,9 +70,9 @@ export default {
     return {
       inputType: 'password',
 
-      passwordValue: '',
-      emailValue: '',
       nameValue: '',
+      emailValue: '',
+      passwordValue: '',
     }
   },
   methods: {

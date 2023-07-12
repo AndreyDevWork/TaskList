@@ -4,19 +4,26 @@
       <div class="social__icon">
         <GoogleIcon/>
       </div>
-      <p class="title-fz16-light">Зарегестрироваться с Google</p>
+      <p class="title-fz16-light">{{ google }}</p>
     </div>
     <div class="social">
       <div class="social__icon">
         <VkIcon/>
       </div>
-      <p class="title-fz16-light">Зарегестрироваться с Вконтакте</p>
+      <p class="title-fz16-light">{{ vKontacte }}</p>
     </div>
   </div>
 </template>
 <script>
 export default {
-  
+  props: {
+    google: {
+      reqauired: true
+    },
+    vKontacte: {
+      reqauired: true
+    },
+  }
 }
 </script>
 <style lang="scss" scoped>

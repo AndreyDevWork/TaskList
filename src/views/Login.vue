@@ -8,7 +8,11 @@
         <p class="title-fz16-light">Или <router-link class="login__link" to="/register">создайте учетную запись</router-link>.</p>
       </div>
       <FormLogin/>
-      <RegisterWith/>
+      
+      <RegisterWith
+        google="Войти через Google"
+        vKontacte="Войти через ВКонтакте"
+      />
     </div>
   </transition>
 
@@ -30,6 +34,7 @@ export default {
   },
   mounted() {
     this.show = true
+    this.$store.commit('setIsRegister', false);
   }
 }
 </script>

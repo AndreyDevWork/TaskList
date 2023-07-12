@@ -1,4 +1,5 @@
 import ButtonWideGreen from '@/components/UI/ButtonWideGreen'
+import ButtonWideWhite from '@/components/UI/ButtonWideWhite'
 import CheckBoxMain from '@/components/UI/CheckBoxMain'
 import ModalAttention from '@/components/UI/ModalAttention'
 
@@ -16,6 +17,7 @@ import VkIcon from '@/components/UI/icons/VkIcon'
 
 export default [
   ButtonWideGreen, 
+  ButtonWideWhite,
   CheckBoxMain,
   ModalAttention,
   UserIcon,

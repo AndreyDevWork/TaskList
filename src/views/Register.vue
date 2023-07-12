@@ -12,7 +12,10 @@
           <p class="title-fz16-light">Или <router-link class="register__link" to="/login">войдите в Вашу учетную запись</router-link>.</p>
         </div>
         <FormRegister/>
-        <RegisterWith/>
+        <RegisterWith 
+          google="Зарегестрироваться с Google"
+          vKontacte="Зарегестрироваться с Вконтакте"
+        />
       </div>
       <WelcomeTaskList
         v-if="isRegister"

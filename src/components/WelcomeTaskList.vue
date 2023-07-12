@@ -7,7 +7,7 @@
       Благодарим Вас за то, что Вы присоединились к Task List.<br>
       Теперь вы можете авторизироваться.
     </p>
-    <a href="" class="title-fz14 welcome__link">Перейти в учетную запись</a>
+    <router-link class="title-fz14 welcome__link" to="/login">Перейти в учетную запись</router-link>
   </main>
   </div>
 </transition>
@@ -29,7 +29,7 @@
     border-radius: 12px;
     background: var(--white);
     margin: auto;
-    margin-top: 20px;
+    margin-top: 40px;
     position: relative;
     z-index: 1;
     &__title {
