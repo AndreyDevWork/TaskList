@@ -17,6 +17,7 @@
           vKontacte="Зарегестрироваться с Вконтакте"
         />
       </div>
+      
       <WelcomeTaskList
         v-if="isRegister"
       />

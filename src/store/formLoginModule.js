@@ -15,6 +15,16 @@ export const formLoginModule = {
     }
   },
   actions: {
-
+    sendLoginData({ commit }, formData) {
+      axios.post('/api/controllers/login.php', formData)
+      .then(response => {
+        if(response.data == 'Ok') {
+          commit('setIsAuth', true); 
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      })
+    }
   }
 }

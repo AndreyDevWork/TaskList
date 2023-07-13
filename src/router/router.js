@@ -2,11 +2,16 @@ import { createRouter, createWebHistory } from "vue-router"
 
 import Register from '@/views/Register'
 import Login from '@/views/Login'
+import Main from '@/views/Main'
+
+import authMixin from '@/mixins/authMixin';
 
 const routes = [
   {
     path: '/',
-    redirect: '/register'
+    component: Main,
+    beforeEnter: authMixin.beforeRouteEnter
+
   },
   {
     path: '/register',

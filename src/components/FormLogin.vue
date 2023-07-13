@@ -33,8 +33,12 @@
       </div>
 
     </div>
+
     <ButtonWideGreen class="form__btn">
-      Войти
+      <LoadingIcon v-if="loading"/>
+      <div v-if="!loading">
+        Войти
+      </div>
     </ButtonWideGreen>
     <ButtonWideWhite class="form__btn" type="button">
       Забыли пароль?
@@ -47,13 +51,19 @@ export default {
     return {
       inputType: 'password',
 
-      passwordValue: '',
       emailValue: '',
+      passwordValue: '',
+      loading: false,
     }
   },
   methods: {
     sendData() {
-      console.log('send')
+      this.loading.true
+      const formData = {
+        email: this.emailValue,
+        password: this.passwordValue
+      }
+      this.$store.dispatch('sendLoginData', formData)
     },
     onChangeInputType() {
       if(this.inputType == 'password') {

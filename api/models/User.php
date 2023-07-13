@@ -33,10 +33,13 @@
     }
 
     public function login() {
+      $requestBody = file_get_contents('php://input');
+      $requestBody = json_decode($requestBody, true);
+
 
       $mysql = DataBase::connectDB();
       $prepare = $mysql->prepare("SELECT * FROM `users` WHERE `email` = ? AND `password` = ?");
-      $prepare->bind_param('ss', $_POST['email'], $_POST['password']);
+      $prepare->bind_param('ss', $requestBody['email'], $requestBody['password']);
 
       $prepare->execute();
 
@@ -44,12 +47,8 @@
 
       if($result->num_rows) {
         $user = mysqli_fetch_assoc($result);
-        $_SESSION['id'] = $user['id'];
+        $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['auth_key'] = $user['auth_key'];
-
-        $prepareUpdate = $mysql->prepare("UPDATE `users` SET `last_visit` = ? WHERE `email` = ? AND `password` = ?");
-        $prepareUpdate->bind_param('sss', date('Y-m-d H:i:s'), $_POST['email'], $_POST['password']);
-        $prepareUpdate->execute();
 
         echo 'Ok';
       } else {
@@ -57,7 +56,6 @@
       }
 
       $prepare->close();
-      $prepareUpdate->close();
       $mysql->close();
     }
   }

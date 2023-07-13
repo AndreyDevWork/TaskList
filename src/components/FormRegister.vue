@@ -82,13 +82,11 @@ export default {
     sendData() {
       this.loading = true;
       const formData = {
-        type: 'user',
         name: this.nameValue,
         email: this.emailValue,
         password: this.passwordValue
-      };
+      }
       
-      // Вызов экшена sendData и передача данных формы
       this.$store.dispatch('sendRegisterData', formData);
     },
     onChangeInputType() {
