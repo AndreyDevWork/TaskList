@@ -14,6 +14,7 @@ import OkayIcon from '@/components/UI/icons/OkayIcon'
 import LogoIcon from '@/components/UI/icons/LogoIcon'
 import GoogleIcon from '@/components/UI/icons/GoogleIcon'
 import VkIcon from '@/components/UI/icons/VkIcon'
+import LoadingIcon from '@/components/UI/icons/LoadingIcon'
 
 export default [
   ButtonWideGreen, 
@@ -31,4 +32,5 @@ export default [
   LogoIcon,
   GoogleIcon,
   VkIcon,
+  LoadingIcon
 ]

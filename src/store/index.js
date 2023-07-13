@@ -1,8 +1,11 @@
 import { createStore } from 'vuex'
-import { formRegisterModule } from './formRegisterModule'
+
+import { formRegisterModule } from '@/store/formRegisterModule'
+import { formLoginModule } from '@/store/formLoginModule'
 
 export default createStore({
   modules: {
-    formRegister: formRegisterModule
+    formRegister: formRegisterModule,
+    formLogin: formLoginModule
   }
 })

@@ -7,7 +7,7 @@
       <div class="form__wrapper-input">
         <UserIcon/>
         <input class="form__input title-fz14-light title_letter-spacing" type="text" placeholder="Name" name="name"
-          v-model="nameValue"
+          v-model.trim="nameValue"
         >
         <OkayIcon
           v-if="validatedName"
@@ -17,7 +17,7 @@
       <div class="form__wrapper-input">
         <EmailIcon/>
         <input class="form__input title-fz14-light title_letter-spacing" type="email" placeholder="Email" name="email" 
-          v-model="emailValue"
+          v-model.trim="emailValue"
         >
         <OkayIcon
           v-if="validatedEmail"
@@ -28,7 +28,7 @@
         <PassLockIcon/>
         <input class="form__input form__password title-fz14-light title_letter-spacing" placeholder="Password" name="password"
           v-bind:type="inputType"
-          v-model="passwordValue"
+          v-model.trim="passwordValue"
         >
         <div
           class="form__show-hide-password"
@@ -57,10 +57,12 @@
     </p>
 
     <ButtonWideGreen
+      LoadingIcon
       class="form__btn"
       v-bind:disabled="btnDisabled"
     >
-      Создать аккаунт
+    <LoadingIcon v-if="loading"/>
+      <div v-if="!loading">Создать аккаунт</div>
     </ButtonWideGreen>
   </form>
 </template>
@@ -73,10 +75,12 @@ export default {
       nameValue: '',
       emailValue: '',
       passwordValue: '',
+      loading: false,
     }
   },
   methods: {
     sendData() {
+      this.loading = true;
       const formData = {
         type: 'user',
         name: this.nameValue,
@@ -85,7 +89,7 @@ export default {
       };
       
       // Вызов экшена sendData и передача данных формы
-      this.$store.dispatch('sendData', formData);
+      this.$store.dispatch('sendRegisterData', formData);
     },
     onChangeInputType() {
       if(this.inputType == 'password') {
@@ -180,6 +184,11 @@ export default {
     }
     &__btn {
       margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      
     }
   }
 

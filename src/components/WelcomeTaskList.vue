@@ -39,13 +39,13 @@
       background: var(--light-gray);
       border-radius: 12px;
       margin-top: 30px;
-      padding: 10px;
+      padding: 10px 15px 10px 15px;
     }
     &__link {
       background: var(--light-gray);
       border-radius: 12px;
       margin-top: 10px;
-      padding: 10px;
+      padding: 10px 15px 10px 15px;
       text-decoration: none;
       color: var(--green);
       transition: 0.4s all;

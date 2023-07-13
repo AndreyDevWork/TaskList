@@ -8,7 +8,7 @@
       <div class="form__wrapper-input">
         <EmailIcon/>
         <input class="form__input title-fz14-light title_letter-spacing" type="email" placeholder="Email" name="email" 
-          v-model="emailValue"
+          v-model.trim="emailValue"
         >
       </div>
 
@@ -16,7 +16,7 @@
         <PassLockIcon/>
         <input class="form__input form__password title-fz14-light title_letter-spacing" placeholder="Password" name="password"
           v-bind:type="inputType"
-          v-model="passwordValue"
+          v-model.trim="passwordValue"
         >
         <div
           class="form__show-hide-password"

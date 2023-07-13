@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const formRegisterModule = {
-  
   state: () => ({
     isRegister: false
   }),
@@ -16,7 +15,7 @@ export const formRegisterModule = {
     }
   },
   actions: {
-    async sendData({ commit }, formData) {
+    async sendRegisterData({ commit }, formData) {
       await axios.post('/api/controllers/register.php', formData)
       .then(response => {
         if(response.data == 'Ok') {
