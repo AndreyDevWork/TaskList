@@ -47,16 +47,34 @@
 
       if($result->num_rows) {
         $user = mysqli_fetch_assoc($result);
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['auth_key'] = $user['auth_key'];
+        $_SESSION['user']['id_user'] = $user['id_user'];
+        $_SESSION['user']['auth_key'] = $user['auth_key'];
 
         echo 'Ok';
       } else {
-        echo 'Неверный логин или пароль';
+        echo 'wrong login or password';
       }
 
       $prepare->close();
       $mysql->close();
+    }
+
+    public function auth() {
+      if($_SESSION['user']) {
+        echo 'Ok';
+      } else {
+        echo 'user not authorized';
+      }
+    }
+
+    public function logout() {
+      if(isset($_SESSION['user'])) {
+        unset($_SESSION['user']);
+        session_destroy();
+        echo 'Ok';
+      } else {
+        echo 'error';
+      }
     }
   }
 

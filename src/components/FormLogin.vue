@@ -46,6 +46,7 @@
   </form>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -58,12 +59,15 @@ export default {
   },
   methods: {
     sendData() {
-      this.loading.true
+      this.loading = true
       const formData = {
         email: this.emailValue,
         password: this.passwordValue
       }
-      this.$store.dispatch('sendLoginData', formData)
+      const result = this.$store.dispatch('sendLoginData', formData)
+      if(result) {
+        this.$router.push('/')
+      }
     },
     onChangeInputType() {
       if(this.inputType == 'password') {
@@ -124,6 +128,9 @@ export default {
     }
     &__btn {
       margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 </style>

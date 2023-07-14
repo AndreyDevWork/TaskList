@@ -3,6 +3,5 @@
   require '../models/User.php';
 
   $user = new User();
-  $user->auth();
-
+  $user->logout();
 ?>

@@ -4,22 +4,24 @@ import Register from '@/views/Register'
 import Login from '@/views/Login'
 import Main from '@/views/Main'
 
-import authMixin from '@/mixins/authMixin';
+import auth from '@/router/auth';
 
 const routes = [
   {
     path: '/',
     component: Main,
-    beforeEnter: authMixin.beforeRouteEnter
+    beforeEnter: auth.beforeRouteEnterToMain
 
   },
   {
     path: '/register',
-    component: Register
+    component: Register,
+    beforeEnter: auth.beforeRouteEnterToLogin
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    beforeEnter: auth.beforeRouteEnterToLogin
   },
 
 ]

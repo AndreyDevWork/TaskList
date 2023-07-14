@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const formLoginModule = {
-  state: () => {
+  state: () => ({
     isAuth: false
-  },
+  }),
   mutations: {
     setIsAuth(state, value) {
       state.isAuth = value
@@ -20,10 +20,21 @@ export const formLoginModule = {
       .then(response => {
         if(response.data == 'Ok') {
           commit('setIsAuth', true); 
+          return true
         }
       })
       .catch(error => {
         console.error(error);
+        return false
+      })
+    },
+    
+    logout({ commit }) {
+      axios.delete('/api/controllers/logout.php')
+      .then(response => {
+        if(response.data == 'Ok') {
+          commit('setIsAuth', false); 
+        }
       })
     }
   }
