@@ -1,14 +1,15 @@
-<template >
+<template>
   <SideBarIcons/>
-  <button class="btn"
-    v-on:click="logout"
-  >Выход</button>
+  <MyProfile/>
+
 </template>
 <script>
 import SideBarIcons from '@/components/SideBarIcons.vue'
+import MyProfile from '@/components/MyProfile.vue'
 export default {
   components: {
-    SideBarIcons
+    SideBarIcons,
+    MyProfile
   },
   methods: {
     logout() {
@@ -18,7 +19,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .btn {
-    margin-left: 100px;
-  }
+
 </style>

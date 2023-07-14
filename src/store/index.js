@@ -8,6 +8,6 @@ export default createStore({
   modules: {
     formRegister: formRegisterModule,
     formLogin: formLoginModule,
-    sideBar: sideBarModule,
-  }
-})
+    sideBar: sideBarModule, 
+  },
+});

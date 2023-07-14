@@ -16,7 +16,6 @@ async function checkAuthentication() {
 export default {
   beforeRouteEnterToMain: async (to, from, next) => {
     const isAuthenticated = await checkAuthentication();
-
     if (isAuthenticated) {
       store.commit('setIsAuth', true)
       next()
@@ -30,7 +29,6 @@ export default {
     if (isAuthenticated) {
       store.commit('setIsAuth', true)
       next('/')
-      next()
     } else {
       next()
     }

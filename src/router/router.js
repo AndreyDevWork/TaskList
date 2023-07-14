@@ -4,7 +4,9 @@ import Register from '@/views/Register'
 import Login from '@/views/Login'
 import Main from '@/views/Main'
 
-import auth from '@/router/auth';
+import auth from "@/router/auth"
+
+
 
 const routes = [
   {
@@ -30,4 +32,8 @@ const router = createRouter({
   routes,
   history: createWebHistory()
 })
+
+
+
+
 export default router

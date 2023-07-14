@@ -59,15 +59,21 @@ export default {
   },
   methods: {
     sendData() {
-      this.loading = true
-      const formData = {
-        email: this.emailValue,
-        password: this.passwordValue
-      }
-      const result = this.$store.dispatch('sendLoginData', formData)
-      if(result) {
-        this.$router.push('/')
-      }
+    this.loading = true
+    const formData = {
+      email: this.emailValue,
+      password: this.passwordValue
+    }
+    this.$store.dispatch('sendLoginData', formData)
+      .then(result => {
+        this.loading = false
+        if (result) {
+          this.$router.push('/')
+        }
+      })
+      .catch(error => {
+        console.error(error)
+      })
     },
     onChangeInputType() {
       if(this.inputType == 'password') {
