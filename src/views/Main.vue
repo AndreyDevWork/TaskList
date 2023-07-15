@@ -1,11 +1,11 @@
 <template>
   <SideBarIcons/>
   <MyProfile/>
+  <DialogCreateCollection/>
   <div class="main-page">
     <h1 class="main-page__title title-h1">Добро пожаловать в Taskl List</h1>
     <div class="main-page__collections">
       <CollectionNew class="create-new"/>
-
     </div>
   </div>
 
@@ -13,10 +13,12 @@
 <script>
 import SideBarIcons from '@/components/SideBarIcons.vue'
 import MyProfile from '@/components/MyProfile.vue'
+import DialogCreateCollection from '@/components/DialogCreateCollection'
 export default {
   components: {
     SideBarIcons,
-    MyProfile
+    MyProfile,
+    DialogCreateCollection
   },
   methods: {
     logout() {

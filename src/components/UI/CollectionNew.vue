@@ -1,5 +1,7 @@
 <template>
-  <div class="newCollection"
+  <div 
+    class="newCollection"
+    v-on:click="changeIsOpened"
     v-on:mouseenter="isHovered = true"
     v-on:mouseleave="isHovered = false"
   >
@@ -14,11 +16,15 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
       isHovered: false
     }
+  },
+  methods: {
+    ...mapActions('dialogCreateCollection', ['changeIsOpened']),
   },
   name: 'CollectionNew'
 }

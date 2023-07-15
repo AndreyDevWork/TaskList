@@ -1,7 +1,6 @@
 <template>
   <button
-    class="btn title-fz14"
-    v-bind:class="{focused: isActive}"
+    v-bind:class="['btn title-fz14',{focused: isActive}]"
     v-on:mousedown="handleMousedown"
     v-on:mouseleave="handleMouseleave"
     v-on:mouseup="handleMouseup"

@@ -1,17 +1,19 @@
 <template>
-  <transition name="bounce">
-    <div class="wrapper"
-      v-if="active"
-    >
-      <div class="profile">
-        <button class="btn"
-        v-on:click="logout"
-        >
-          Выход
-        </button>
+  <div class="position">
+    <transition name="bounce">
+      <div class="wrapper"
+        v-if="active"
+      >
+        <div class="profile">
+          <button class="btn"
+          v-on:click="logout"
+          >
+            Выход
+          </button>
+        </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 
 </template>
 <script>
@@ -34,11 +36,17 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .position {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .wrapper {
     padding: 40px 0 0 0;
   }
   .profile {
-    padding: 20px 10px 40px 10px;
+    padding: 20px 10px;
     width: 680px;
     min-height: 100px;
     margin: auto;

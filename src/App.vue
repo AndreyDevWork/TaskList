@@ -14,5 +14,6 @@ export default {
     background: url('assets/img/bg.jpg') no-repeat 50%/cover;;
     width: 100%;
     min-height: 100vh;
+    position: relative;
   }
 </style>
