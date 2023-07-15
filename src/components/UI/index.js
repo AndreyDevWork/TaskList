@@ -3,6 +3,7 @@ import ButtonWideWhite from '@/components/UI/ButtonWideWhite'
 import CheckBoxMain from '@/components/UI/CheckBoxMain'
 import ModalAttention from '@/components/UI/ModalAttention'
 import CollectionNew from '@/components/UI/CollectionNew'
+import OverlayDialog from '@/components/UI/OverlayDialog'
 
 
 import UserIcon from '@/components/UI/icons/UserIcon'
@@ -26,6 +27,7 @@ export default [
   CheckBoxMain,
   ModalAttention,
   CollectionNew,
+  OverlayDialog,
 
   UserIcon,
   EmailIcon,
