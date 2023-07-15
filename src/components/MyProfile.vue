@@ -1,15 +1,18 @@
 <template>
-  <div class="wrapper"
-    v-if="active"
-  >
-    <div class="profile">
-      <button class="btn"
-      v-on:click="logout"
-      >
-        Выход
-      </button>
+  <transition name="bounce">
+    <div class="wrapper"
+      v-if="active"
+    >
+      <div class="profile">
+        <button class="btn"
+        v-on:click="logout"
+        >
+          Выход
+        </button>
+      </div>
     </div>
-  </div>
+  </transition>
+
 </template>
 <script>
 export default {
@@ -41,5 +44,23 @@ export default {
     margin: auto;
     background-color: var(--white);
     border-radius: 12px;
+  }
+
+
+
+  .bounce-enter-active {
+  animation: bounce-in 0.2s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.2s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 100%;
+    }
   }
 </style>

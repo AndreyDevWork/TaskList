@@ -5,7 +5,7 @@
         <MenuBurgerIcon/>
       </div>
     </div>
-    <div v-bind:class="{'sidebar__icon': $store.getters.current != 'main', 'current': $store.getters.current == 'main' }">
+    <div v-bind:class="{'sidebar__icon': $store.getters['sideBar/current'] != 'main', 'current': $store.getters['sideBar/current'] == 'main' }">
       <div class="sidebar__icon-wrapper">
         <LogoIcon/>
       </div>
@@ -27,13 +27,19 @@
 import MyProfile from '@/components/MyProfile.vue'
 import { mapMutations } from 'vuex';
 export default {
+  data() {
+    return {
+      profile: true
+    }
+  },
   components: {
     MyProfile
   },
   methods: {
     ...mapMutations('sideBar', ['setProfile']),
     handleClick() {
-      this.setProfile(true);
+      this.setProfile(!this.profile)
+      this.profile = !this.profile
     },
   },
 }

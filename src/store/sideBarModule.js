@@ -7,7 +7,6 @@ export const sideBarModule = {
   mutations: {
     setProfile(state, value) {
       state.profile = value
-      console.log(state.profile)
     }
   },
   getters: {
