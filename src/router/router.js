@@ -8,22 +8,20 @@ import auth from "@/router/auth"
 
 
 
+
 const routes = [
   {
     path: '/',
     component: Main,
-    beforeEnter: auth.beforeRouteEnterToMain
 
   },
   {
     path: '/register',
     component: Register,
-    beforeEnter: auth.beforeRouteEnterToLogin
   },
   {
     path: '/login',
     component: Login,
-    beforeEnter: auth.beforeRouteEnterToLogin
   },
 
 ]
@@ -33,7 +31,16 @@ const router = createRouter({
   history: createWebHistory()
 })
 
+router.beforeEach((to, from, next) => {
+  const authCheck = auth.getCookie('auth');
+  if ((to.path !== '/register' && to.path !== '/login') && Boolean(authCheck) === false) {
+    next('/login');
+  } else if((to.path === '/register' || to.path === '/login') && Boolean(authCheck) === true) {
+    next('/');
+  } else {
+    next()
+  }
 
-
+});
 
 export default router

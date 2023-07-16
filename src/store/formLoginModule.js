@@ -20,6 +20,10 @@ export const formLoginModule = {
       .then(response => {
         if (response.data === 'Ok') {
           commit('setIsAuth', true)
+          const currentDate = new Date();
+          const expirationDate = new Date(currentDate.getTime() + 100 * 60 * 60 * 1000);
+          const expirationDateString = expirationDate.toUTCString();
+          document.cookie = "auth=true; expires=" + expirationDateString + "; path=/";
           return true
         } else {
           return false
@@ -32,6 +36,7 @@ export const formLoginModule = {
       .then(response => {
         if(response.data == 'Ok') {
           commit('setIsAuth', false); 
+          document.cookie = "auth=true; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           return true
         } else {
           return false

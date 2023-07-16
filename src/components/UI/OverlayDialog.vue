@@ -57,7 +57,7 @@ export default {
   }
   @keyframes bounce-in {
     0% {
-      transform: scale(0);
+      transform: scale(0.5);
       opacity: 0;
     }
     100% {
