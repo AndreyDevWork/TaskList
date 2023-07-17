@@ -15,7 +15,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .panel {
     background: var(--white);
     height: 50px;

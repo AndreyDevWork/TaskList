@@ -13,34 +13,14 @@
 
     <div class="flex-one"></div>
 
-
-    <div class="sidebar__icon"
-      v-on:click="handleClick"
-    >
-      <div class="sidebar__icon-wrapper sidebar__user title-fz10-light">
-        АО
-      </div>
-    </div>
+    <ButtonOpenProfile/>
   </div>
 </template>
 <script>
 import MyProfile from '@/components/MyProfile.vue'
-import { mapMutations } from 'vuex';
 export default {
-  data() {
-    return {
-      profile: false
-    }
-  },
   components: {
     MyProfile
-  },
-  methods: {
-    ...mapMutations('sideBar', ['setProfile']),
-    handleClick() {
-      this.setProfile(!this.profile)
-      this.profile = !this.profile
-    },
   },
 }
 </script>

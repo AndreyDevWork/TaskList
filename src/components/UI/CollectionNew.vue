@@ -29,7 +29,7 @@ export default {
   name: 'CollectionNew'
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .newCollection {
     height: 115px;
     width: 100px;

@@ -1,6 +1,7 @@
 <template>
   <div
     class="overlay"
+    v-bind:class="{'overlay-true' : overlayColor, 'overlay-false' : !overlayColor}"
     v-if="isOpened"
     v-on:click="actionIsOpened"
   >
@@ -25,6 +26,11 @@ export default {
     actionIsOpened: {
       type: Function,
       required: true
+    },
+    overlayColor: {
+      type: Boolean, 
+      required: false,
+      default: true
     }
   },
   name: 'OverlayDialog'
@@ -40,8 +46,13 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
     z-index: 0
+  }
+  .overlay-true {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .overaly-false {
+    background-color: white;
   }
   .position {
     position: absolute;

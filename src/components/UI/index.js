@@ -4,6 +4,7 @@ import CheckBoxMain from '@/components/UI/CheckBoxMain'
 import ModalAttention from '@/components/UI/ModalAttention'
 import CollectionNew from '@/components/UI/CollectionNew'
 import OverlayDialog from '@/components/UI/OverlayDialog'
+import ButtonOpenProfile from '@/components/UI/ButtonOpenProfile'
 
 
 import UserIcon from '@/components/UI/icons/UserIcon'
@@ -28,6 +29,7 @@ export default [
   ModalAttention,
   CollectionNew,
   OverlayDialog,
+  ButtonOpenProfile,
 
   UserIcon,
   EmailIcon,
