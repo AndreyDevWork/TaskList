@@ -13,14 +13,24 @@
 
     <div class="flex-one"></div>
 
-    <ButtonOpenProfile/>
+    <ButtonOpenProfile
+      class="btn"
+      v-on:click="handleClick"
+    />
   </div>
 </template>
 <script>
 import MyProfile from '@/components/MyProfile.vue'
+import { mapMutations } from 'vuex'
 export default {
   components: {
     MyProfile
+  },
+  methods: {
+    ...mapMutations('sideBar', ['setProfile']),
+    handleClick() {
+      this.setProfile()
+    },
   },
 }
 </script>
@@ -56,11 +66,9 @@ export default {
       justify-content: center;
     }
   }
-
   .flex-one {
     flex: 1;
   }
-
   .current {
     display: flex;
     justify-content: center;
@@ -69,5 +77,13 @@ export default {
     height: 50px;
     cursor: pointer;
     background-color: var(--light-blue);
+  }
+  .btn {
+    width: 50px;
+    height: 23px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--white);
+    }
   }
 </style>

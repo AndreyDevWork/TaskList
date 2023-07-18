@@ -3,7 +3,7 @@
   width="100%" height="100%" viewBox="0 0 512.000000 512.000000"
   preserveAspectRatio="xMidYMid meet">
   <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-  fill="#000000" stroke="none">
+  v-bind:class="{'green' : green, 'black' : !green}" stroke="none">
   <path d="M2462 5099 c-25 -13 -55 -39 -70 -62 l-27 -41 -3 -1118 -2 -1118
   -1107 0 -1107 0 -44 -21 c-26 -13 -54 -38 -70 -62 -23 -35 -27 -51 -27 -117 0
   -66 4 -82 27 -117 16 -24 44 -49 70 -62 l44 -21 1107 0 1107 0 0 -1107 0
@@ -17,9 +17,23 @@
 </template>
 <script>
 export default {
+  props: {
+    green: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   name: 'PlusIcon'
 }
 </script>
 <style lang="scss" scoped>
+  .black {
+    fill: #000000;
+  }
+  .green {
+    fill: var(--svg-green);
+  }
+
 
 </style>

@@ -28,9 +28,7 @@
         v-on:handle-value="handleValue"
 
       />
-      <div class="dialog__members">
-        Участники
-      </div>
+      <CollectionNewMembers/>
     </div>
   </OverlayDialog>
 </template>

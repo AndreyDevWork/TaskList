@@ -6,7 +6,7 @@ import CollectionNew from '@/components/UI/CollectionNew'
 import OverlayDialog from '@/components/UI/OverlayDialog'
 import ButtonOpenProfile from '@/components/UI/ButtonOpenProfile'
 import CollectionNewNameInput from '@/components/UI/CollectionNewNameInput'
-
+import CollectionNewMembers from '@/components/UI/CollectionNewMembers'
 
 import UserIcon from '@/components/UI/icons/UserIcon'
 import EmailIcon from '@/components/UI/icons/EmailIcon'
@@ -35,6 +35,7 @@ export default [
   OverlayDialog,
   ButtonOpenProfile,
   CollectionNewNameInput,
+  CollectionNewMembers,
 
   UserIcon,
   EmailIcon,

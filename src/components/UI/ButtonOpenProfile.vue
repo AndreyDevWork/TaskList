@@ -1,22 +1,13 @@
 <template>
-  <div class="btn"
-    v-on:click="handleClick"
-  >
+  <div class="btn">
     <div class="btn__wrapper sidebar__user title-fz10-light">
       АО
     </div>
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
 export default {
   name: 'ButtonOpenProfile',
-  methods: {
-    ...mapMutations('sideBar', ['setProfile']),
-    handleClick() {
-      this.setProfile()
-    },
-  },
 }
 </script>
 <style lang="scss" scoped>
@@ -24,12 +15,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    &:hover {
-      background-color: var(--white);
-    }
     &__wrapper {
       height: 23px;
       width: 23px;

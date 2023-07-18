@@ -5,11 +5,11 @@
       <label class="model__label title-fz12-light" for="name">Название</label>
       <input 
         v-focus 
-        class="model__input title-fz16-light" 
+        class="model__input title-fz15-light" 
         id="name" 
         name="name" 
         type="text" 
-        placeholder="Введите название для Вашей collection (например: Клиенты, Задачи, Документы)"
+        placeholder="Введите название для Вашей коллекции (например: Клиенты, Задачи, Документы)"
         v-on:input="$emit('handleValue', value)"
         v-model="value"
         >
@@ -26,10 +26,10 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .model {
     display: grid;
-    grid-template-columns: 20px 590px;
+    grid-template-columns: 23px 592px;
     column-gap: 15px;
     padding: 5px 15px;
     background-color: var(--light-gray);
@@ -52,11 +52,14 @@ export default {
       border: none;
       background-color: var(--light-gray);
       outline: none;
+      &::placeholder  {
+        color: var(--text-gray);
+      }
     }
   }
 
   .size {
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 23px;
   }
 </style>
