@@ -39,8 +39,10 @@ export default {
 <style lang="scss" scoped>
   .wrapper {
     position: absolute;
+    width: 680px;
     left: 50%;
     transform: translateX(-50%);
+
   }
   .overlay {
     width: 100%;
@@ -54,10 +56,7 @@ export default {
   .overaly-false {
     background-color: white;
   }
-  .position {
-    position: absolute;
-    z-index: 1;
-  }
+
 
 
   .bounce-enter-active {

@@ -14,14 +14,20 @@
         <div class="dialog__title title-fz15">
           Создать новую коллекцию
         </div>
-        <div class="title-fz14-light dialog__btn dialog__btn-disabled hover">
+        <button 
+          class="title-fz14-light dialog__btn hover"
+          v-bind:class="{'dialog__btn-disabled' : !inputNameValue}"
+          v-on:click="send"
+          
+        >
           Создать
-        </div>
+        </button>
       </div>
 
-      <div class="dialog__name-collection">
-        Введите название
-      </div>
+      <CollectionNewNameInput
+        v-on:handle-value="handleValue"
+
+      />
       <div class="dialog__members">
         Участники
       </div>
@@ -32,11 +38,25 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  data() {
+    return {
+      inputNameValue: ''
+    }
+  },
+
   computed: {
     ...mapGetters('dialogCreateCollection', ['isOpened']),
   },
   methods: {
-    ...mapActions('dialogCreateCollection', ['changeIsOpened'])
+    ...mapActions('dialogCreateCollection', ['changeIsOpened']),
+    handleValue(value) {
+      this.inputNameValue = value
+    },
+    send() {
+      if(this.activeBtn) {
+        console.log('dsds')
+      }
+    }
   }
 }
 </script>
@@ -64,7 +84,9 @@ export default {
     &__btn {
       padding: 5px 5px;
       cursor: pointer;
+      background-color: white;
       color: var(--green);
+      border: none;
     }
     &__btn-disabled {
       cursor: default;

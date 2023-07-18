@@ -5,6 +5,7 @@ import ModalAttention from '@/components/UI/ModalAttention'
 import CollectionNew from '@/components/UI/CollectionNew'
 import OverlayDialog from '@/components/UI/OverlayDialog'
 import ButtonOpenProfile from '@/components/UI/ButtonOpenProfile'
+import CollectionNewNameInput from '@/components/UI/CollectionNewNameInput'
 
 
 import UserIcon from '@/components/UI/icons/UserIcon'
@@ -21,6 +22,9 @@ import VkIcon from '@/components/UI/icons/VkIcon'
 import LoadingIcon from '@/components/UI/icons/LoadingIcon'
 import MenuBurgerIcon from '@/components/UI/icons/MenuBurgerIcon'
 import PlusIcon from '@/components/UI/icons/PlusIcon'
+import CubeIcon from '@/components/UI/icons/CubeIcon'
+
+
 
 export default [
   ButtonWideGreen, 
@@ -30,6 +34,7 @@ export default [
   CollectionNew,
   OverlayDialog,
   ButtonOpenProfile,
+  CollectionNewNameInput,
 
   UserIcon,
   EmailIcon,
@@ -44,5 +49,7 @@ export default [
   VkIcon,
   LoadingIcon,
   MenuBurgerIcon,
-  PlusIcon
+  PlusIcon,
+  CubeIcon,
+
 ]
